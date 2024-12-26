@@ -102,7 +102,7 @@ resource "aws_security_group" "instance" {
 
 resource "aws_key_pair" "deployer" {
   key_name   = "deployer-key"
-  public_key = file("~/.ssh/id_rsa.pub")  # Path to your public key
+  public_key = file("/home/ubuntu/.ssh/id_rsa.pub")  # Path to your public key
 }
 
 resource "aws_instance" "web" {
