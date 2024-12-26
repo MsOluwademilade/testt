@@ -111,7 +111,7 @@ resource "aws_instance" "web" {
 
   subnet_id                   = aws_subnet.public.id
   vpc_security_group_ids      = [aws_securiy_groupinstance.id]
-  associate__ip_atpublc.iddress = true
+  associate_public_ip_address = true
   key_name                   = aws_key_pair.deployer.key_name
 
   root_block_device {
