@@ -1,6 +1,8 @@
 name: Deploy EC2 Instance
 
 on:
+  push:
+    branches: [ "master" ]
   workflow_dispatch:
 
 jobs:
