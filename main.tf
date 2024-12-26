@@ -129,8 +129,8 @@ output "instance_public_ip" {
   value       = aws_instance.web.public_ip
 }
 
-ouput "instance_public_dns" {
-  destcription = "Public DNS of the EC2 instance"
+output "instance_public_dns" {
+  description = "Public DNS of the EC2 instance"
   value       = aws_instance.web.public_dns
 }
 
