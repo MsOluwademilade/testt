@@ -5,7 +5,7 @@ on:
 
 jobs:
   deploy-ec2:
-    rus-on: ubuntu-lnatest
+    runs-on: ubuntu-lnatest
 
     env:
       AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
