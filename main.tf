@@ -128,8 +128,8 @@ resource "aws_instance" "web" {
               systemctl enable docker
 
               # Pull and run the Docker container from Docker Hub
-              docker pull oluwademilade/simple-webpage:latest
-              docker run -d -p 80:80 oluwademilade/simple-webpage:latest
+              docker pull oluwademilade/webpage:latest
+              docker run -d -p 80:80 oluwademilade/webpage:latest
               EOF
 
   root_block_device {
