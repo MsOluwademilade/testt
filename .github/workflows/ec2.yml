@@ -31,7 +31,10 @@ jobs:
           terraform_version: 1.2.0
 
       - name: Terraform Init
-        run: terraform init
+        run: terraform init \
+          -backend-config="bucket=lade-terraform-bucket" \
+          -backend-config="key=terraform.tfstate" \
+          -backend-config="region=us-east-1"
 
       - name: Terraform Plan
         env:
