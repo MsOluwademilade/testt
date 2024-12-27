@@ -122,11 +122,12 @@ resource "aws_instance" "web" {
   user_data = <<-EOF
               #!/bin/bash
               # Install docker
-              yum update -y
-              yum install -y docker
-              service docker start
-              
-              # Run the container
+              apt-get update -y
+              apt-get install -y docker.io
+              systemctl start docker
+              systemctl enable docker
+
+              # Pull and run the Docker container from Docker Hub
               docker pull oluwademilade/simple-webpage:latest
               docker run -d -p 80:80 oluwademilade/simple-webpage:latest
               EOF
