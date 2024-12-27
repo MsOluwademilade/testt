@@ -102,7 +102,13 @@ resource "aws_security_group" "instance" {
 
 resource "aws_key_pair" "deployer" {
   key_name   = "deployer-key"
-  public_key = file("/home/ubuntu/.ssh/id_rsa.pub")  # Path to your public key
+  public_key = var.ssh_public_key
+}
+
+variable "ssh_public_key" {
+  description = "SSH public key for EC2 instances"
+  type        = string
+  sensitive   = true  # Marks this as sensitive data
 }
 
 resource "aws_instance" "web" {
