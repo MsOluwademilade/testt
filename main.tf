@@ -119,6 +119,18 @@ resource "aws_instance" "web" {
   associate_public_ip_address = true
   key_name                   = aws_key_pair.deployer.key_name
 
+  user_data = <<-EOF
+              #!/bin/bash
+              # Install docker
+              yum update -y
+              yum install -y docker
+              service docker start
+              
+              # Run the container
+              docker pull oluwademilade/simple-webpage:latest
+              docker run -d -p 80:80 oluwademilade/simple-webpage:latest
+              EOF
+
   root_block_device {
     volume_size = 8
     volume_type = "gp3"
